@@ -23,9 +23,11 @@ public class BookStore {
         miTienda.setVisible(true);
         //String[][] Catalogo = new String[10][3];
         //ArrayList<String> Catalogo= new ArrayList<String>();
-        Libro book=new Libro(1234,"programacion java",90000);
-        
-        
+        Libro book1=new Libro(123876653,"Algoritmia y Programaciòn",57000);
+        Libro book2=new Libro(345980343,"Programacion en Java",75000);
+        Libro book3=new Libro(908654873,"El lenguaje UML",43500);
+        Libro book4=new Libro(243865443,"Usando JUnit",63092);
+        Libro book5=new Libro(877765343,"Programacion en C++",65432);
         
     }
     
