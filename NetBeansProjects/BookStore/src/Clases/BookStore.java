@@ -23,6 +23,8 @@ public class BookStore {
         miTienda.setVisible(true);
         //String[][] Catalogo = new String[10][3];
         //ArrayList<String> Catalogo= new ArrayList<String>();
+        Libro book=new Libro(1234,"programacion java",90000);
+        
         
         
     }
