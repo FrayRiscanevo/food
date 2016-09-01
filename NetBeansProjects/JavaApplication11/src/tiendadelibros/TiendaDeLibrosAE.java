@@ -3,41 +3,40 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication11;
+package tiendadelibros;
 
-import java.util.Iterator;
-import java.util.Vector;
+
 import javax.swing.JOptionPane;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author DuvHer
  */
-public class NewJFrame extends javax.swing.JFrame {
-    private DefaultTableModel  modelo1, modelo2;
+public class TiendaDeLibrosAE extends javax.swing.JFrame {
+    private DefaultTableModel  modelo1, modelo2;    //Tablas para guardar datos del catálogo y el carrito
     private String Datos[][] = {};
-    private String[] Encabezado1 = {"ISBN", "Título", "Valor"};
-    private String[] Encabezado2 = {"ISBN", "Título", "Cantidad", "Subtotal"};
+    private String[] titulo1 = {"ISBN", "Título", "Valor"};  //títulos para mostrar en las tablas
+    private String[] titulo2 = {"ISBN", "Título", "Cantidad", "Subtotal"};
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame() {
+    public TiendaDeLibrosAE() {
         initComponents();
         
-        modelo1 = new DefaultTableModel(Datos, Encabezado1);
+        modelo1 = new DefaultTableModel(Datos, titulo1);    //Se crea una nueva tabla para el catálogo y el carrito
         Catalogo.setModel(modelo1);
         
-        modelo2 = new  DefaultTableModel (Datos, Encabezado2);
+        modelo2 = new  DefaultTableModel (Datos, titulo2);
         Carrito.setModel(modelo2); 
         
-        String Datos1[] = {"234-543-654", "Programación", "23423"};
+        String Datos1[] = {"234-543-654", "Programación", "23423"}; //Se guardan libros predefinidos en el catálogo
             modelo1.addRow(Datos1);
         String Datos2[] = {"543-765-456", "Lenguaje UML", "24500"};
             modelo1.addRow(Datos2);
         String Datos3[] = {"543-765-122", "C++", "17900"};
             modelo1.addRow(Datos3);
+            
+        
     }
 
     /**
@@ -49,6 +48,7 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panel1 = new java.awt.Panel();
         btnAdicionarLibro = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         Catalogo = new javax.swing.JTable();
@@ -59,11 +59,22 @@ public class NewJFrame extends javax.swing.JFrame {
         Carrito = new javax.swing.JTable();
         btnBorrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        mostrarTotal = new javax.swing.JTextPane();
         txtCantidad = new javax.swing.JTextField();
+        textField1 = new java.awt.TextField();
+
+        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
+        panel1.setLayout(panel1Layout);
+        panel1Layout.setHorizontalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        panel1Layout.setVerticalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tienda de Libros");
         setResizable(false);
 
         btnAdicionarLibro.setText("Adicionar Libro");
@@ -117,13 +128,17 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Total");
-
-        jScrollPane3.setViewportView(mostrarTotal);
+        jLabel1.setText("TOTAL");
 
         txtCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCantidadActionPerformed(evt);
+            }
+        });
+
+        textField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textField1ActionPerformed(evt);
             }
         });
 
@@ -164,9 +179,9 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addComponent(btnBorrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
-                        .addGap(26, 26, 26)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(104, 104, 104))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,11 +201,12 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBorrar)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnBorrar)
+                        .addComponent(jLabel1))
+                    .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -198,45 +214,71 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void btnAdicionarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarLibroActionPerformed
         // TODO add your handling code here:
-        /*String Datos1[] = {"ADSASD", "DSFADSF", "23423"};
-            modelo1.addRow(Datos1);*/
-        String ISBN = JOptionPane.showInputDialog("Ingrese el ISBN del libro:");
+
+        String ISBN = JOptionPane.showInputDialog("Ingrese el ISBN del libro:");    //Entrada de datos del libro para el catálogo
         String Titulo = JOptionPane.showInputDialog("Ingrese el título del libro:");
-        String Valor = JOptionPane.showInputDialog("Ingrese el valor del libro:");
+        String Valor = JOptionPane.showInputDialog("Ingrese el valor del libro:");      
         String Datos[] = {ISBN, Titulo, Valor};
-            modelo1.addRow(Datos);
+            modelo1.addRow(Datos);                                                  //Se guardan los datos ingresados por el usuario en el modelo1
         
         
             
     }//GEN-LAST:event_btnAdicionarLibroActionPerformed
-
+    
     private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
         // TODO add your handling code here:
         
-        String Cantid=txtCantidad.getText();
+        String Cantid=txtCantidad.getText();   //Se obtiene el dato de cantidad digitado por el usuario
          
-        int s = Catalogo.getSelectedRow();
-        String ISBN = (String) modelo1.getValueAt(s, 0); // ISBN.
-        String Titulo = (String) modelo1.getValueAt(s, 1); // Título.
+        int s = Catalogo.getSelectedRow();      //Se tiene el número de la fila que el usuario ha seleccionado
+        String ISBN = (String) modelo1.getValueAt(s, 0); //Se obtiene el ISBN de la casilla seleccionada
+        String Titulo = (String) modelo1.getValueAt(s, 1); //Se obtiene el título de la casilla seleccionada
         
-        Double Valor= Double.parseDouble( (String) modelo1.getValueAt(s, 2) );
-        Double Cantidad= Double.parseDouble( (String) Cantid);
+        Double Valor= Double.parseDouble( (String) modelo1.getValueAt(s, 2) );  //Se convierte a double el valor del catalogo
+        Double Cantidad= Double.parseDouble( (String) Cantid);                  //Se convierte a double el valor de la cantidad
         Double Subtotal=Valor*Cantidad;
-        String Subtot= Double.toString(Subtotal);
-        String Datos[] = {ISBN, Titulo, Cantid, Subtot};
+        String Subtot= Double.toString(Subtotal);                               //Convertir a String
+        String Datos[] = {ISBN, Titulo, Cantid, Subtot};                        //Generar la tabla del carrito
         modelo2.addRow(Datos);
-        mostrarTotal.setText("Total");
+        
+        int R = modelo2.getRowCount();
+        
+        double TOTAL =0;
+        for(int i=0; i< R; i++ ){
+            
+            TOTAL=TOTAL + Double.parseDouble( (String) modelo2.getValueAt(i, 3));    //Sumar los subtotales de los libros del carrito        
+        }
+        String ToTaL= Double.toString(TOTAL);
+        
+        textField1.setText(ToTaL);      //Muestra el total en el campo de texto de la ventana
+        
     }//GEN-LAST:event_btnComprarActionPerformed
-
+    
+        
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
         // TODO add your handling code here:
         int S = Carrito.getSelectedRow();
-        modelo2.removeRow(S);
+        modelo2.removeRow(S);           //Remover fila seleccionada por el usuario
+        
+        int U = modelo2.getRowCount();
+        
+        double TOTAL =0;
+        for(int i=0; i< U; i++ ){
+            
+            TOTAL=TOTAL + Double.parseDouble( (String) modelo2.getValueAt(i, 3));   //Calcular nuevamente el subtotal         
+        }
+        String ToTaL= Double.toString(TOTAL);
+        
+        textField1.setText(ToTaL);      //Muestra el total en el campo de texto de la ventana
     }//GEN-LAST:event_btnBorrarActionPerformed
-
+        
     private void txtCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCantidadActionPerformed
+
+    private void textField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,21 +297,26 @@ public class NewJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TiendaDeLibrosAE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TiendaDeLibrosAE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TiendaDeLibrosAE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TiendaDeLibrosAE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            //@Override
+            
             public void run() {
-                new NewJFrame().setVisible(true);
+                //NewJFrame.setLocationRelativeTo(null);
+                
+                new TiendaDeLibrosAE().setVisible(true);
+                
+                
             }
         });
     }
@@ -283,10 +330,10 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private java.awt.Label label1;
     private java.awt.Label label2;
-    private javax.swing.JTextPane mostrarTotal;
+    private java.awt.Panel panel1;
+    private java.awt.TextField textField1;
     private javax.swing.JTextField txtCantidad;
     // End of variables declaration//GEN-END:variables
 }
