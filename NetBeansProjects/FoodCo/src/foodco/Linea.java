@@ -11,20 +11,41 @@ import java.util.ArrayList;
  *
  * @author faris
  */
-public class Linea {
+public class Linea extends Fabrica {
     private int id;
     private String nombre;
-    private Fabrica fabrica;
     private ArrayList<RegistroProduccion> registro;
     private Supervisor supervisor;
-    private Empleado[] empleados;
-   
-    public Linea(int id, String nombre, Fabrica fabrica,Supervisor supervisor,Empleado[] empleados ) {
+    private Empleado[] empleadosL;
+
+    public Linea(Empleado[] empleados, String nombre, String nombref,int id, String nombreL, ArrayList<RegistroProduccion> registro, Supervisor supervisor) {
+        super(empleados, nombre, nombref);
         this.id = id;
-        this.nombre = nombre;
-        this.fabrica = fabrica;
-        this.registro = new ArrayList<RegistroProduccion>();
+        this.nombre = nombreL;
+        this.registro = registro;
         this.supervisor = supervisor;
-        this.empleados=empleados;
+        this.empleadosL=new Empleado[20];
     }
+    public int InicioTurno(){
+        return 0;    
+    }
+    
+    public int RegistroEmpleadoIn(){
+        return 0;    
+    }
+    
+    public int RegistroEmpleadoOut(){
+        return 0;    
+    }
+    
+    public int PausarLinea(){
+        return 0;    
+    }
+    
+    public int RegistroProblema(){
+        return 0;    
+    }
+    
+   
+    
 }

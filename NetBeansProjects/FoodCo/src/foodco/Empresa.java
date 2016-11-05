@@ -28,6 +28,28 @@ public class Empresa {
     public void agregarSupervisor (Supervisor supervisora){
         supervisor.add(supervisora);
     }
+    public Empleado[] AsignarEmpleadosFabrica(){
+        return null;
+    }
+    public String RegistroEmpleadosDisponibles(){
+        return null;    
+    }
+    
+    public String RegistroEmpleadosNoDisponibles(){
+        return null;    
+    }
+    
+    public String RegistroEmpleadosProbablementeDisponibles(){
+        return null;    
+    }
+    
+    public String AlmacenarSolicitudesVacaciones(){
+        return null;    
+    }
+    
+    public String AlmacenarSolicitudesEnfermedad(){
+        return null;    
+    }
     
     
 }

@@ -16,5 +16,7 @@ public class Fabrica extends Empresa {
         super(empleados, nombre);
         this.nombref=nombref;
     }
-    
+    public Empleado[] AsignarLineaEmpleadosSemana(){
+        return null;    
+    }
 }

@@ -1,4 +1,5 @@
 
+import foodco.Empleado;
 import foodco.Linea;
 
 
@@ -14,16 +15,15 @@ import foodco.Linea;
  *
  * @author DuvHer
  */
-public class Supervisor {
-    private String name;
-    private int id;
-    private Linea linea;
+public class Supervisor extends Empleado {
 
-    public Supervisor(String name, int id, Linea linea) {
-        this.name = name;
-        this.id = id;
-        this.linea = linea;
+    public Supervisor(String name, int id, String experiencias, Linea linea) {
+        super(name, id, experiencias, linea);
     }
+
     
+    public int AprobarSolicitudesEmpleados(){
+        return 0;    
+    }
     
 }

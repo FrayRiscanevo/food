@@ -21,6 +21,13 @@ public class Empleado {
         this.experiencias = experiencias;
         this.linea = linea;
     }
+    public int SolicitudVacaciones(){
+       return 0;             
+    }
+    
+    public int SolicitudEnfermedad(){
+       return 0;             
+    }
 
     
     
