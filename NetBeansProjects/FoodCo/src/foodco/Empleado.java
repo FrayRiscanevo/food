@@ -12,4 +12,16 @@ package foodco;
 public class Empleado {
     private String name;
     private int id;
+    private String experiencias;
+    private Linea linea;
+
+    public Empleado(String name, int id, String experiencias, Linea linea) {
+        this.name = name;
+        this.id = id;
+        this.experiencias = experiencias;
+        this.linea = linea;
+    }
+
+    
+    
 }
